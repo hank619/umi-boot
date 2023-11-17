@@ -24,4 +24,5 @@ export default defineConfig({
   locale: {
     default: 'en-US',
   },
+  hash: true,
 });
