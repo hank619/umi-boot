@@ -1,8 +1,7 @@
-/*
- * @Author: Hong.Zhang
- * @Date: 2023-11-10 17:00:02
- * @Description: 
- */
-{
-  
-}
+let platform = {};
+try {
+  platform = require(`./en-US/index.json`);
+} catch (e) {}
+export default {
+  ...platform,
+};
