@@ -8,7 +8,7 @@
     "start-staging": "UMI_ENV=staging max dev",
     "start-production": "UMI_ENV=production max dev",
     "build-dev": "UMI_ENV=develop max build",
-    "build-qa": "UMI_ENV=qa build",
+    "build-qa": "UMI_ENV=qa max build",
     "build-staging": "UMI_ENV=staging max build",
     "build-production": "UMI_ENV=production max build",
     "format": "prettier --cache --write .",
