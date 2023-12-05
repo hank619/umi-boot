@@ -12,7 +12,8 @@
     "prepare": "husky install",
     "postinstall": "max setup",
     "setup": "max setup",
-    "openapi": "max openapi"
+    "openapi": "max openapi",
+    "extract": "sh extract.sh"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
@@ -25,6 +26,7 @@
     "qs": "^6.11.2"
   },
   "devDependencies": {
+    "@formatjs/cli": "^6.2.4",
     "@types/qs": "^6.9.10",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
