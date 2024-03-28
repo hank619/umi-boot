@@ -3,28 +3,24 @@
  * @Date: 2023-11-10 15:05:19
  * @Description:
  */
-import {
-  COLORS,
-  COLOR_VALUE_TYPE,
-  DEFAULT_COLOR_PLATE,
-} from '@/constants/theme';
+import { COLOR_VALUE_TYPE, DEFAULT_COLOR_PLATE } from '@/constants/theme';
 
-function getCssVariable(color: COLOR_VALUE_TYPE) {
+export function getCssVariable(color: COLOR_VALUE_TYPE) {
+  const root = document.documentElement;
   return (
-    getComputedStyle(document.documentElement).getPropertyValue(
-      `--color-${color}`,
-    ) || DEFAULT_COLOR_PLATE[color]
+    getComputedStyle(root).getPropertyValue(`--color-${color}`) ||
+    DEFAULT_COLOR_PLATE[color]
   );
 }
 
-function setCssVariable(color: COLOR_VALUE_TYPE, value: string) {
-  document.documentElement.style.setProperty(`--color-${color}`, value);
+export function setCssVariable(color: COLOR_VALUE_TYPE, value: string) {
+  const root = document.documentElement;
+  root.style.setProperty(`--color-${color}`, `rgb(${value})`);
 }
 
-export function getPrimaryColor() {
-  return getCssVariable(COLORS.primary);
-}
-
-export function setPrimaryColor(color: string) {
-  setCssVariable(COLORS.primary, color);
-}
+export const setDefaultColorPlateToRoot = () => {
+  const root = document.documentElement;
+  for (const [key, value] of Object.entries(DEFAULT_COLOR_PLATE)) {
+    root.style.setProperty(`--color-${key}`, `rgb(${value})`);
+  }
+};

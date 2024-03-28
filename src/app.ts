@@ -1,18 +1,15 @@
 import {
-  RequestError,
   AxiosRequestConfig,
   AxiosResponse,
   RequestConfig,
+  RequestError,
 } from '@umijs/max';
 import { message, notification } from 'antd';
-import { parse } from 'qs';
+import { setDefaultColorPlateToRoot } from './utils/theme';
 
-export async function getInitialState(): Promise<{ productType: string }> {
-  const params = parse(location.search.substring(1));
-  const productType = params.productType;
-  return {
-    productType: productType as string,
-  };
+export async function getInitialState(): Promise<any> {
+  setDefaultColorPlateToRoot();
+  return {};
 }
 
 // error show type
