@@ -16,7 +16,7 @@ export default function Welcome() {
       <div className="text-primary">Welcome</div>
       <Button
         type="primary"
-        onClick={() => changeTheme?.(COLORS.primary, 'rgb(255 0 0)')}
+        onClick={() => changeTheme?.(COLORS.primary, '#ff0000')}
       >
         Click
       </Button>
