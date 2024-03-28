@@ -8,4 +8,6 @@ import React from 'react';
 interface ChangeTheme {
   changeTheme: (color: string) => void;
 }
-export const ThemContext = React.createContext<ChangeTheme | null>(null);
+export const ThemContext = React.createContext<ChangeTheme | undefined>(
+  undefined,
+);

@@ -3,15 +3,17 @@
  * @Date: 2023-11-09 14:29:51
  * @Description:
  */
+import { ThemContext } from '@/context/ThemeContext';
 import { Button } from 'antd';
-import { useNavigate } from '@umijs/max';
+import { useContext } from 'react';
 
 export default function Welcome() {
-  const navigate = useNavigate();
+  const context = useContext(ThemContext);
+  const { changeTheme } = context ?? {};
   return (
     <div className="w-fit mt-48 m-auto flex flex-col items-center">
-      Welcome
-      <Button onClick={() => navigate('./test')}>Click</Button>
+      <div className="text-primary">Welcome</div>
+      <Button onClick={() => changeTheme?.('255 0 0')}>Click</Button>
     </div>
   );
 }
