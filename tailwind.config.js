@@ -25,7 +25,7 @@ function getTailWindColors() {
   Object.values(COLORS).forEach((value) => {
     colors[
       value
-    ] = `var(--color-${value}, rgb(${DEFAULT_COLOR_PLATE[value]}) / <alpha-value>)`;
+    ] = `var(--color-${value}, ${DEFAULT_COLOR_PLATE[value]} / <alpha-value>)`;
   });
   colors.transparent = '#00000000';
   return colors;

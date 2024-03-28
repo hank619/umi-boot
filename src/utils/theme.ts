@@ -15,12 +15,12 @@ export function getCssVariable(color: COLOR_VALUE_TYPE) {
 
 export function setCssVariable(color: COLOR_VALUE_TYPE, value: string) {
   const root = document.documentElement;
-  root.style.setProperty(`--color-${color}`, `rgb(${value})`);
+  root.style.setProperty(`--color-${color}`, value);
 }
 
 export const setDefaultColorPlateToRoot = () => {
   const root = document.documentElement;
   for (const [key, value] of Object.entries(DEFAULT_COLOR_PLATE)) {
-    root.style.setProperty(`--color-${key}`, `rgb(${value})`);
+    root.style.setProperty(`--color-${key}`, value);
   }
 };

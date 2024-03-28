@@ -21,12 +21,12 @@ type COLOR_TYPE = typeof COLORS;
 export type COLOR_VALUE_TYPE = COLOR_TYPE[keyof COLOR_TYPE];
 
 export const DEFAULT_COLOR_PLATE: Record<COLOR_VALUE_TYPE, string> = {
-  [COLORS.primary]: '88 88 255',
-  [COLORS.success]: '46 213 115',
-  [COLORS.error]: '245 34 9',
-  [COLORS.warning]: '207 137 9',
-  [COLORS.info]: '30 144 255',
-  [COLORS.black]: '33 33 33',
-  [COLORS.gray]: '238 238 238',
-  [COLORS.white]: '255 255 255',
+  [COLORS.primary]: 'rgb(88 88 255)',
+  [COLORS.success]: 'rgb(46 213 115)',
+  [COLORS.error]: 'rgb(245 34 9)',
+  [COLORS.warning]: 'rgb(207 137 9)',
+  [COLORS.info]: 'rgb(30 144 255)',
+  [COLORS.black]: 'rgb(33 33 33)',
+  [COLORS.gray]: 'rgb(238 238 238)',
+  [COLORS.white]: 'rgb(255 255 255)',
 };
