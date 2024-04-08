@@ -9,8 +9,8 @@ export const COLORS = {
   //functional
   success: 'success',
   error: 'error',
-  warning: 'waiting',
-  info: 'processing',
+  warning: 'warning',
+  info: 'info',
   // neutral
   black: 'black',
   gray: 'gray',
