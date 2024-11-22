@@ -35,7 +35,10 @@ function Layout() {
           },
         }}
       >
-        <Outlet />
+        <div>
+          <div>test</div>
+          <Outlet />
+        </div>
       </ConfigProvider>
     </ThemContext.Provider>
   );

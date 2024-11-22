@@ -6,7 +6,7 @@
 export default [
   {
     path: '/',
-    component: '@/layouts/index.tsx',
+    component: '@/customLayout/index.tsx',
     routes: [
       {
         path: '/',
