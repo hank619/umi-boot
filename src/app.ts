@@ -32,6 +32,20 @@ interface ResponseStructure {
 export const request: RequestConfig = {
   baseURL: API_HOST,
 
+  // handle situation that query contains whitespace that will be encoded to +, should be encoded to %20
+  paramsSerializer(params) {
+    return Object.keys(params)
+      .filter((key) => params[key] !== undefined)
+      .map(
+        (key) =>
+          `${key}=${
+            typeof params[key] === 'string'
+              ? params[key]
+              : JSON.stringify(params[key])
+          }`,
+      )
+      .join('&');
+  },
   // errorThrower => errorHandler
   errorConfig: {
     errorThrower: (res: ResponseStructure) => {
