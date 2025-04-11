@@ -17,7 +17,7 @@ export default function Welcome() {
     new ColorFactory(DEFAULT_COLOR_PLATE[COLORS.primary]),
   );
   return (
-    <div className="w-fit mt-48 m-auto flex flex-col items-center  gap-4">
+    <div className="m-auto mt-48 flex w-fit flex-col items-center gap-4">
       <div className="text-primary">Welcome</div>
       <ColorPicker value={color} onChange={setColor} showText />
       <Button
