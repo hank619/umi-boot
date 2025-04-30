@@ -3,10 +3,13 @@ import {
   AxiosResponse,
   RequestConfig,
   RequestError,
+  getLocale,
 } from '@umijs/max';
 import { message, notification } from 'antd';
+import { camelizeKeys, decamelizeKeys } from 'humps';
+import { cloneDeep } from 'lodash';
+import { LOCAL_TOKEN, local } from './utils/store';
 import { setDefaultColorPlateToRoot } from './utils/theme';
-
 export async function getInitialState(): Promise<any> {
   setDefaultColorPlateToRoot();
   return {};
@@ -104,7 +107,25 @@ export const request: RequestConfig = {
   },
   requestInterceptors: [
     (config: AxiosRequestConfig) => {
-      return { ...config };
+      const { headers, params, data } = config;
+
+      const clonedHeaders = cloneDeep(headers ?? {});
+      const token = local.get(LOCAL_TOKEN);
+      if (token) {
+        clonedHeaders['x-authorization'] = token;
+      }
+      const newParams = decamelizeKeys(params ?? {});
+      newParams.lang = getLocale();
+
+      const newData =
+        data instanceof FormData ? data : decamelizeKeys(data ?? {});
+
+      return {
+        ...config,
+        headers: clonedHeaders,
+        params: newParams,
+        data: newData,
+      };
     },
   ],
   responseInterceptors: [
@@ -113,6 +134,7 @@ export const request: RequestConfig = {
       (response: AxiosResponse) => {
         // response refer to https://raw.githubusercontent.com/matrixyf/pictureRepo/main/axiosReponse.png
         // will trigger errorConfig.errorThrower when response.data.success = false
+        response.data = camelizeKeys(response.data);
         return response;
       },
       // axios error
