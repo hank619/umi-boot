@@ -3,6 +3,8 @@
  * @Date: 2023-11-09 16:21:29
  * @Description:
  */
+import { useModel } from '@/.umi/plugin-model';
+import Loading from '@/components/Loading';
 import { COLORS, COLOR_VALUE_TYPE } from '@/constants/theme';
 import { ThemContext } from '@/context/ThemeContext';
 import { getCssVariable, setCssVariable } from '@/utils/theme';
@@ -12,6 +14,7 @@ import { useReducer } from 'react';
 
 function Layout() {
   const [, forceRender] = useReducer((v) => v + 1, 0);
+  const { loading } = useModel('loading');
 
   return (
     <ThemContext.Provider
@@ -36,8 +39,12 @@ function Layout() {
         }}
       >
         <div>
-          <div>test</div>
           <Outlet />
+          {loading && (
+            <div className="absolute inset-0">
+              <Loading />
+            </div>
+          )}
         </div>
       </ConfigProvider>
     </ThemContext.Provider>
