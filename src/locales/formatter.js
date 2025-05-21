@@ -1,6 +1,6 @@
 let mapping = {};
 try {
-  mapping = require('./index.json');
+  mapping = require(`./${process.env.locale}/index.json`);
 } catch (e) {
   mapping = {};
 }

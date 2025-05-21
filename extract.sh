@@ -17,7 +17,7 @@ fi
 echo "the language is: $language"
 echo "extract messages:"
 
-cmd="formatjs extract 'src/**/*.ts*' --ignore 'src/**/*.d.ts' --out-file src/locales/$language/index.json --format src/locales/$language/TMS.js"
+cmd="locale=$language formatjs extract 'src/**/*.ts*' --ignore 'src/**/*.d.ts' --out-file src/locales/$language/index.json --format src/locales/formatter.js"
 echo ${cmd} | awk '{run=$0;system(run)}'
 
 echo "extract completed"
