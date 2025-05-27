@@ -3,12 +3,11 @@
  * @Date: 2023-11-09 16:21:29
  * @Description:
  */
-import { useModel } from '@/.umi/plugin-model';
 import Loading from '@/components/Loading';
 import { COLORS, COLOR_VALUE_TYPE } from '@/constants/theme';
 import { ThemContext } from '@/context/ThemeContext';
 import { getCssVariable, setCssVariable } from '@/utils/theme';
-import { Outlet } from '@umijs/max';
+import { Outlet, useModel } from '@umijs/max';
 import { ConfigProvider } from 'antd';
 import { useReducer } from 'react';
 
