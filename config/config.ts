@@ -24,6 +24,7 @@ export default defineConfig({
   },
   locale: {
     default: 'en-US',
+    baseNavigator: false,
   },
   hash: true,
   // https://umijs.org/docs/api/config#icon-%E9%9B%86%E4%BD%BF%E7%94%A8
